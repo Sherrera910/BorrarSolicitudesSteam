@@ -1,5 +1,5 @@
 import subprocess
-import sys
+
 
 def run_steamcmd(command, steam_guard_code=None):
     steamcmd_path = "SteamCMD"
@@ -25,13 +25,9 @@ def decline_friend_request(steam_id, steam_guard_code=None):
     run_steamcmd(f"friends_deny_request {steam_id}", steam_guard_code)
 
 def main():
-    if len(sys.argv) < 2:
-        print("Por favor, proporciona el código de autenticación de Steam Guard ")
-        sys.exit(1)
-
-    steam_guard_code = sys.argv[1]
+ steam_guard_code = input("Por favor, ingresa el código de autenticación de Steam Guard: ")
     friend_requests = get_friend_requests(steam_guard_code)
-    print(f"Se encontraron {len(friend_requests)} solicitudes de amistad.")
+    print(f"Se encontraron {len(friend_requests)} solicitudes de amistad."
     
     for steam_id in friend_requests:
         print(f"Rechazando solicitud de amistad de {steam_id}...")
@@ -39,6 +35,4 @@ def main():
 
     print("Todas las solicitudes de amistad han sido rechazadas.")
 
-if __name__ == "__main__":
-    main()
 
