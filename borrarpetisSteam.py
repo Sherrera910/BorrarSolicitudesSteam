@@ -3,7 +3,7 @@ import sys
 
 def run_steamcmd(command, steam_guard_code=None):
     steamcmd_path = "SteamCMD"
-    login_command = f"login Inspector_De_Tulas Hercules14!"
+    login_command = f"login usuario contraseña"
     
     if steam_guard_code:
         login_command += f" {steam_guard_code}"
